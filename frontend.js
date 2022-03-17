@@ -132,14 +132,14 @@ $("#sign-message").click(async function (event) {
               } else {
                   throw Error(res.statusText);
               }
-              }).then(json => {
+            }).then(json => {
               // Auth succeeded
               $("#code").text(JSON.stringify(["Eth sign message => true", json], null, 2));
               console.log('Authed');
-              }).catch(err => {
+            }).catch(err => {
               // Auth failed
               console.log('Auth failed: ', err);
-              })
+            })
           }
       };
       
@@ -206,7 +206,6 @@ $("#send-tx").click(async function (event) {
     const web3 = new Web3(provider);      
     const accounts = await web3.eth.getAccounts();
 
-    const message = "0x47173285a8d7341e5e972fc677286384f802f8ef42a5ec5f03bbfa254cb01fad";
     const txRes = await web3.eth.sendTransaction({
       from: accounts[0],
       to: accounts[0],
